@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: shellDemo
+  main:
+    web-application-type: NONE
+    banner-mode: OFF
+  shell:
+    interactive:
+      enabled: true
+    script:
+      enabled: true
+
+logging:
+  level:
+    root: OFF
