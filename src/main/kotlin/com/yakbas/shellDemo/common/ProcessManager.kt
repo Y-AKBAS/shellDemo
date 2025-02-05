@@ -1,4 +1,4 @@
-package com.yakbas.shellDemo
+package com.yakbas.shellDemo.common
 
 import org.jline.terminal.Terminal
 import org.springframework.stereotype.Component

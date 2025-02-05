@@ -9,6 +9,8 @@ spring:
       enabled: true
     script:
       enabled: true
+    history:
+      enabled: true
 
 logging:
   level:
