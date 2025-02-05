@@ -24,17 +24,19 @@ class ApiClient(private val restClient: RestClient, private val objectMapper: Ob
         @Option(required = true, longNames = ["url"], shortNames = ['u']) url: String,
         @Option(
             required = false,
+            longNames = ["param"],
             shortNames = ['p'],
             arity = CommandRegistration.OptionArity.ONE_OR_MORE
         )
         params: List<String>?,
         @Option(
             required = false,
+            longNames = ["header"],
             shortNames = ['h'],
             arity = CommandRegistration.OptionArity.ONE_OR_MORE
         )
         headers: List<String>?,
-        @Option(required = false, shortNames = ['b']) body: String?
+        @Option(required = false, longNames = ["body"], shortNames = ['b']) body: String?
     ): String {
         val httpMethod = method.uppercase().let { m -> httpMethods.find { it.matches(m) } }
         if (httpMethod == null) {
