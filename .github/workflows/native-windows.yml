@@ -21,11 +21,14 @@ jobs:
       - name: Install Native Image
         shell: pwsh
         run: |
-          $gu = & where.exe gu | Select-Object -First 1
-          if ($gu) {
-            & $gu install native-image
+          $javaPath = & where.exe java | Select-Object -First 1
+          $graalBin = Split-Path $javaPath
+          $guCmd = Join-Path $graalBin 'gu.cmd'
+
+          if (Test-Path $guCmd) {
+            & $guCmd install native-image
           } else {
-            Write-Error "gu not found in PATH"
+            Write-Error "gu.cmd not found at $guCmd"
             exit 1
           }
 
