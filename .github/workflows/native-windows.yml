@@ -27,3 +27,12 @@ jobs:
         with:
           name: sec-tool-windows
           path: build/native/nativeCompile/sec-tool.exe
+
+      - name: Upload to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          name: "Release ${{ github.ref_name }}"
+          files: build/native/nativeCompile/sec-tool.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
