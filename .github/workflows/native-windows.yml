@@ -19,11 +19,15 @@ jobs:
           distribution: "graalvm"
 
       - name: Install Native Image
-        run: |
-          echo "Adding GraalVM to PATH..."
-          $env:PATH = "${{ env.GRAALVM_HOME }}\\bin;" + $env:PATH
-          & "${{ env.GRAALVM_HOME }}\\bin\\gu.cmd" install native-image
         shell: pwsh
+        run: |
+          $gu = & where.exe gu | Select-Object -First 1
+          if ($gu) {
+            & $gu install native-image
+          } else {
+            Write-Error "gu not found in PATH"
+            exit 1
+          }
 
       - name: Build Native Image
         run: ./gradlew nativeCompile
