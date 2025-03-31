@@ -1,0 +1,25 @@
+name: Build Native Windows
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build-native:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup GraalVM
+        uses: graalvm/setup-graalvm@v1
+        with:
+          version: "21.0.0"
+          java-version: "21"
+          distribution: "graalvm"
+
+      - name: Install Native Image
+        run: gu install native-image
+
+      - name: Build Native Image
+        run: ./gradlew nativeCompile

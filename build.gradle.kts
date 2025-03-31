@@ -3,10 +3,21 @@ plugins {
     kotlin("plugin.spring") version "1.9.25"
     id("org.springframework.boot") version "3.3.3"
     id("io.spring.dependency-management") version "1.1.6"
+    id("org.graalvm.buildtools.native") version "0.10.6"
 }
 
 group = "com.yakbas"
 version = "0.0.1-SNAPSHOT"
+
+graalvmNative {
+    binaries {
+        named("main") {
+            imageName.set("sec-tool")
+            buildArgs.add("--no-fallback")
+            buildArgs.add("--report-unsupported-elements-at-runtime")
+        }
+    }
+}
 
 java {
     toolchain {

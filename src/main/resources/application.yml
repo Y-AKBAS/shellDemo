@@ -10,7 +10,7 @@ spring:
     script:
       enabled: true
     history:
-      enabled: true
+      enabled: false
 
 logging:
   level:
