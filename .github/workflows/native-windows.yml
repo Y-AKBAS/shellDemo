@@ -17,20 +17,7 @@ jobs:
           version: "21.0.0"
           java-version: "21"
           distribution: "graalvm"
-
-      - name: Install Native Image
-        shell: pwsh
-        run: |
-          $javaPath = & where.exe java | Select-Object -First 1
-          $graalBin = Split-Path $javaPath
-          $guCmd = Join-Path $graalBin 'gu.cmd'
-
-          if (Test-Path $guCmd) {
-            & $guCmd install native-image
-          } else {
-            Write-Error "gu.cmd not found at $guCmd"
-            exit 1
-          }
+          components: 'native-image'
 
       - name: Build Native Image
         run: ./gradlew nativeCompile
