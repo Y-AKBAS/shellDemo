@@ -17,7 +17,6 @@ jobs:
           version: "21.0.0"
           java-version: "21"
           distribution: "graalvm"
-          components: 'native-image'
 
       - name: Build Native Image
         run: ./gradlew nativeCompile

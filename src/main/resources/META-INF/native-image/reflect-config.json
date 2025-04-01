@@ -1,0 +1,29 @@
+[
+  {
+    "name": "com.yakbas.shellDemo.commands.vulnerabilityCheck.VulnerabilityData",
+    "allDeclaredConstructors": true,
+    "allDeclaredFields": true,
+    "allPublicFields": true,
+    "allPublicMethods": true
+  },
+  {
+    "name": "org.apache.logging.log4j.message.DefaultFlowMessageFactory",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.logging.log4j.message.ParameterizedMessageFactory",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.logging.log4j.spi.AbstractLogger",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.logging.log4j.status.StatusLogger",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.logging.log4j.LogManager",
+    "allDeclaredConstructors": true
+  }
+]
